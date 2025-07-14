@@ -365,7 +365,7 @@ export default function AboutPage() {
                       <Badge variant="secondary" className="bg-blue-500/20 text-blue-400 mb-4">
                         {milestone.year}
                       </Badge>
-                      <h3 className="text-2xl font-bold mb-3">{milestone.title}</h3>
+                      <h3 className="text-2xl text-white font-bold mb-3">{milestone.title}</h3>
                       <p className="text-gray-400 text-lg">{milestone.description}</p>
                     </CardContent>
                   </Card>
