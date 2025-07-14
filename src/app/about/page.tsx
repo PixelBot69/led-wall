@@ -1,5 +1,4 @@
 // src/app/about/page.tsx
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
@@ -10,71 +9,101 @@ import {
   Shield,
   Users,
   Lightbulb,
+  Settings,
+  Zap,
+  Home,
+  Monitor,
+  Wifi,
+  Camera,
+  Building,
+  Headphones,
+  Clock,
+  Award,
+  CheckCircle,
+  Star
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us | Sawariya Indra Tech Solution",
+  title: "About Us | GM Automation & Solution",
   description:
-    "Learn about Sawariya Indra Tech Solution's mission to drive innovation in LED lighting and automation technologies.",
+    "Learn about GM Automation & Solution's mission to provide cutting-edge technology solutions for homes and businesses since 2010.",
 };
 
-const teamMembers = [
+const services = [
   {
-    name: "Rajeev Kumar",
-    role: "Founder & CEO",
-    bio: "With a passion for lighting innovation, Rajeev leads Sawariya Indra Tech to deliver high-performance LED solutions globally.",
-    img1: "/img1.webp",
+    title: "Home Automation",
+    description: "Smart home solutions with centralized control systems",
+    icon: <Home className="h-8 w-8" />,
+    color: "bg-blue-500/20 text-blue-400",
   },
   {
-    name: "Pooja Singh",
-    role: "Head of Engineering",
-    bio: "Expert in LED circuit design and smart automation, Pooja drives our product development and innovation.",
-    img1: "/img1.webp",
+    title: "ELV Systems",
+    description: "Structured cabling, CCTV, and access control solutions",
+    icon: <Camera className="h-8 w-8" />,
+    color: "bg-purple-500/20 text-purple-400",
   },
   {
-    name: "Ankit Sharma",
-    role: "Marketing Director",
-    bio: "Ankit focuses on market growth and customer outreach, ensuring our LED products reach every corner of India and beyond.",
-    img1: "/img1.webp",
+    title: "Home Cinema",
+    description: "Premium audio-visual and entertainment systems",
+    icon: <Monitor className="h-8 w-8" />,
+    color: "bg-cyan-500/20 text-cyan-400",
   },
   {
-    name: "Ritika Verma",
-    role: "Customer Success Head",
-    bio: "Committed to client satisfaction, Ritika helps partners implement our solutions with excellence.",
-    img1: "/img1.webp",
+    title: "ICT Solutions",
+    description: "Wi-Fi, IT infrastructure, and communication systems",
+    icon: <Wifi className="h-8 w-8" />,
+    color: "bg-green-500/20 text-green-400",
+  },
+  {
+    title: "Smart Systems",
+    description: "Building management and automation solutions",
+    icon: <Building className="h-8 w-8" />,
+    color: "bg-orange-500/20 text-orange-400",
+  },
+  {
+    title: "Support & AMC",
+    description: "Comprehensive maintenance and support services",
+    icon: <Headphones className="h-8 w-8" />,
+    color: "bg-red-500/20 text-red-400",
   },
 ];
 
 const milestones = [
   {
-    year: "2016",
+    year: "2010",
     title: "Company Founded",
     description:
-      "Sawariya Indra Tech Solution was founded to revolutionize lighting with energy-efficient LED technologies.",
+      "GM Automation & Solution was established to revolutionize home and business automation with cutting-edge technology.",
   },
   {
-    year: "2017",
-    title: "First Manufacturing Unit",
+    year: "2012",
+    title: "First Major Projects",
     description:
-      "Launched our in-house LED manufacturing plant with advanced automation tools.",
+      "Successfully completed our first large-scale home automation and ELV system installations.",
+  },
+  {
+    year: "2015",
+    title: "Smart Home Solutions",
+    description:
+      "Expanded our offerings to include IoT-enabled smart home systems and advanced security solutions.",
+  },
+  {
+    year: "2018",
+    title: "1000+ Satisfied Clients",
+    description:
+      "Reached the milestone of serving over 1000 satisfied customers across residential and commercial sectors.",
   },
   {
     year: "2020",
-    title: "Smart Lighting Solutions",
+    title: "Digital Transformation",
     description:
-      "Expanded our offerings to include IoT-enabled LED systems and industrial automation.",
+      "Embraced digital solutions and remote monitoring capabilities for enhanced customer experience.",
   },
   {
     year: "2023",
-    title: "PAN India Presence",
+    title: "Excellence Recognition",
     description:
-      "Established distributor networks across major cities, serving over 5,000 clients nationwide.",
-  },
-  {
-    year: "2024",
-    title: "Green Tech Recognition",
-    description:
-      "Awarded for sustainable innovation in lighting by the National Energy Board.",
+      "Recognized as a leading automation solution provider with 1500+ successful projects completed.",
   },
 ];
 
@@ -82,23 +111,46 @@ const values = [
   {
     title: "Innovation",
     description:
-      "We strive to build futuristic lighting solutions, integrating smart controls and sustainable materials.",
+      "We embrace cutting-edge technology to deliver smart, efficient, and future-ready automation solutions.",
     icon: <Lightbulb className="h-8 w-8" />,
     color: "bg-blue-500/20 text-blue-400",
   },
   {
-    title: "Collaboration",
+    title: "Quality",
     description:
-      "We partner with architects, builders, and engineers to craft custom lighting experiences.",
-    icon: <Users className="h-8 w-8" />,
+      "We ensure the highest standards in every project, from planning to execution and ongoing support.",
+    icon: <Award className="h-8 w-8" />,
     color: "bg-purple-500/20 text-purple-400",
   },
   {
     title: "Trust",
     description:
-      "We stand for reliability and long-lasting performance, offering unmatched service and product warranties.",
+      "We build lasting relationships through reliability, transparency, and exceptional customer service.",
     icon: <Shield className="h-8 w-8" />,
-    color: "bg-blue-500/20 text-blue-400",
+    color: "bg-cyan-500/20 text-cyan-400",
+  },
+];
+
+const stats = [
+  {
+    number: "1500+",
+    label: "Trusted Clients",
+    description: "Happy customers across residential and commercial sectors"
+  },
+  {
+    number: "12+",
+    label: "Years Experience",
+    description: "Providing cutting-edge automation solutions since 2010"
+  },
+  {
+    number: "500+",
+    label: "Projects Completed",
+    description: "Successfully delivered automation projects of all scales"
+  },
+  {
+    number: "24/7",
+    label: "Support Available",
+    description: "Round-the-clock technical support and maintenance"
   },
 ];
 
@@ -115,33 +167,45 @@ export default function AboutPage() {
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <div className="mb-16">
             <h1 className="text-[120px] md:text-[180px] font-black leading-none tracking-tighter mb-4 uppercase">
-              OUR{" "}
+              GM{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-                VISION
+                AUTOMATION
               </span>
             </h1>
           </div>
           <p className="max-w-3xl mx-auto text-xl md:text-2xl text-gray-300">
-            We aim to light up the future with eco-friendly, smart, and affordable LED
-            technologies across India and beyond.
+            Providing cutting-edge technology solutions for homes and businesses since 2010. 
+            We're dedicated to creating smarter, more efficient spaces through innovative technology.
           </p>
         </div>
       </section>
 
-      {/* Story */}
+      {/* Stats Section */}
       <section className="py-24 bg-gradient-to-b from-black to-gray-900">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="relative h-[500px] rounded-xl overflow-hidden">
-            <Image
-              src="/img1.webp"
-              alt="Factory team"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {stats.map((stat, i) => (
+              <Card
+                key={i}
+                className="bg-gray-900/60 backdrop-blur-sm border-gray-800 hover:border-blue-500 transition-all duration-300 text-center"
+              >
+                <CardContent className="p-8">
+                  <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">
+                    {stat.number}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{stat.label}</h3>
+                  <p className="text-gray-400 text-sm">{stat.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div>
+      {/* Story */}
+      <section className="py-24 bg-gradient-to-b from-gray-900 to-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
             <Badge
               variant="outline"
               className="mb-6 text-blue-400 border-blue-400 py-1.5 px-4 text-sm uppercase tracking-wider"
@@ -154,31 +218,90 @@ export default function AboutPage() {
                 Story
               </span>
             </h2>
-            <div className="space-y-6 text-lg text-gray-300">
-              <p>
-                Established in 2016, Sawariya Indra Tech Solution set out to redefine
-                lighting standards in India with top-quality LED products.
-              </p>
-              <p>
-                Our founder, Rajeev Kumar, envisioned a company that blends innovation
-                with affordability to meet both industrial and residential lighting
-                demands.
-              </p>
-              <p>
-                Today, we continue to grow as a trusted name in LED lighting and smart
-                tech, creating value for partners through design, durability, and service.
-              </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-8 text-lg text-gray-300">
+              <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
+                <div className="flex items-center mb-4">
+                  <div className="w-3 h-3 bg-blue-400 rounded-full mr-4"></div>
+                  <h3 className="text-2xl font-semibold text-white">The Beginning</h3>
+                </div>
+                <p className="leading-relaxed">
+                  Established in 2010, GM Automation & Solution began with a vision to transform how people interact with technology in their daily lives. Our founder recognized the growing need for intelligent, integrated solutions that could make homes and businesses more efficient, secure, and comfortable.
+                </p>
+              </div>
+
+              <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
+                <div className="flex items-center mb-4">
+                  <div className="w-3 h-3 bg-purple-400 rounded-full mr-4"></div>
+                  <h3 className="text-2xl font-semibold text-white">Our Mission</h3>
+                </div>
+                <p className="leading-relaxed">
+                  We are dedicated to creating smarter, more efficient spaces through innovative technology. Our comprehensive range of services includes Home Automation, ELV Systems, Home Cinema, ICT Solutions, and Smart Building Management Systems, all designed to enhance the quality of life and work.
+                </p>
+              </div>
+
+              <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
+                <div className="flex items-center mb-4">
+                  <div className="w-3 h-3 bg-cyan-400 rounded-full mr-4"></div>
+                  <h3 className="text-2xl font-semibold text-white">Today & Beyond</h3>
+                </div>
+                <p className="leading-relaxed">
+                  Today, we continue to grow as a trusted name in automation and smart technology solutions. With over 1500 satisfied clients and 12+ years of excellence, we remain committed to innovation, quality, and customer satisfaction as we build the future of intelligent living and working spaces.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
+      {/* Services */}
       <section className="py-24 bg-black relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative text-center">
           <Badge
             variant="outline"
             className="mb-6 text-purple-400 border-purple-400 py-1.5 px-4 text-sm uppercase tracking-wider"
+          >
+            What We Do
+          </Badge>
+          <h2 className="text-5xl md:text-6xl font-bold mb-8 tracking-tight">
+            Our{" "}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+              Services
+            </span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg mb-16">
+            Comprehensive automation solutions designed to transform your space into a smart, efficient environment.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, i) => (
+              <Card
+                key={i}
+                className="bg-gray-900/60 backdrop-blur-sm border-gray-800 hover:border-blue-500 transition-all duration-300"
+              >
+                <CardContent className="p-8">
+                  <div
+                    className={`h-16 w-16 rounded-lg ${service.color} flex items-center justify-center mb-6 mx-auto`}
+                  >
+                    {service.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+                  <p className="text-gray-400 text-lg">{service.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="py-24 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-6 relative text-center">
+          <Badge
+            variant="outline"
+            className="mb-6 text-cyan-400 border-cyan-400 py-1.5 px-4 text-sm uppercase tracking-wider"
           >
             What Drives Us
           </Badge>
@@ -189,7 +312,7 @@ export default function AboutPage() {
             </span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg mb-16">
-            Our philosophy is grounded in excellence, service, and future-forward thinking.
+            Our philosophy is grounded in excellence, innovation, and customer satisfaction.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -200,7 +323,7 @@ export default function AboutPage() {
               >
                 <CardContent className="p-8">
                   <div
-                    className={`h-16 w-16 rounded-lg ${value.color} flex items-center justify-center mb-6`}
+                    className={`h-16 w-16 rounded-lg ${value.color} flex items-center justify-center mb-6 mx-auto`}
                   >
                     {value.icon}
                   </div>
@@ -214,13 +337,13 @@ export default function AboutPage() {
       </section>
 
       {/* Journey */}
-      <section className="py-24 bg-gradient-to-b from-black to-gray-900">
+      <section className="py-24 bg-gradient-to-b from-gray-900 to-black">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <Badge
             variant="outline"
             className="mb-6 text-blue-400 border-blue-400 py-1.5 px-4 text-sm uppercase tracking-wider"
           >
-            Since 2016
+            Since 2010
           </Badge>
           <h2 className="text-5xl md:text-6xl font-bold mb-8 tracking-tight">
             Our{" "}
@@ -229,7 +352,7 @@ export default function AboutPage() {
             </span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg mb-16">
-            From concept to execution, we’ve illuminated thousands of spaces with smart LED solutions.
+            From concept to execution, we've transformed thousands of spaces with smart automation solutions.
           </p>
 
           <div className="space-y-16 relative">
@@ -254,46 +377,58 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Why Choose Us */}
       <section className="py-24 bg-black">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <Badge
             variant="outline"
             className="mb-6 text-purple-400 border-purple-400 py-1.5 px-4 text-sm uppercase tracking-wider"
           >
-            Our Team
+            Why Choose Us
           </Badge>
           <h2 className="text-5xl md:text-6xl font-bold mb-8 tracking-tight">
-            Meet the{" "}
+            The{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-              Leaders
+              GM Advantage
             </span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg mb-16">
-            Get to know the people powering our vision for a brighter, energy-smart world.
+            Experience the difference with our comprehensive approach to automation and smart technology.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                title: "Expert Team",
+                description: "Skilled professionals with years of experience in automation technology",
+                icon: <Users className="h-6 w-6" />
+              },
+              {
+                title: "Quality Assurance",
+                description: "Rigorous testing and quality control for all installations and services",
+                icon: <CheckCircle className="h-6 w-6" />
+              },
+              {
+                title: "24/7 Support",
+                description: "Round-the-clock technical support and maintenance services",
+                icon: <Clock className="h-6 w-6" />
+              },
+              {
+                title: "Proven Track Record",
+                description: "1500+ satisfied clients and 12+ years of excellence in automation",
+                icon: <Star className="h-6 w-6" />
+              }
+            ].map((advantage, i) => (
               <Card
                 key={i}
                 className="bg-gray-900/60 backdrop-blur-sm border-gray-800 hover:border-blue-500 transition-all duration-300"
               >
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src={member.img1}
-                    alt={member.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60" />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
-                  <Badge variant="secondary" className="bg-blue-500/20 text-blue-400 border-none mb-2">
-                    {member.role}
-                  </Badge>
-                  <p className="text-gray-400">{member.bio}</p>
+                <CardContent className="p-8">
+                  <div className="h-12 w-12 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center mb-4 mx-auto">
+                    {advantage.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{advantage.title}</h3>
+                  <p className="text-gray-400">{advantage.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -310,20 +445,27 @@ export default function AboutPage() {
           Contact Us
         </Badge>
         <h2 className="text-5xl md:text-6xl font-bold mb-8 tracking-tight">
-          Let’s Brighten the{" "}
+          Ready to{" "}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-            Future
+            Automate?
           </span>
         </h2>
         <p className="text-gray-300 text-xl max-w-2xl mx-auto mb-10">
-          Partner with Sawariya Indra Tech Solution for cutting-edge LED systems
-          tailored to your needs.
+          Partner with GM Automation & Solution for cutting-edge automation systems
+          tailored to your specific needs.
         </p>
-        <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 text-lg">
-          <Link href="/contact">
-            Reach Out <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </Button>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 text-lg">
+            <Link href="/contact">
+              Get Started <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+          <Button asChild size="lg" variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:border-gray-500 px-8 py-6 text-lg">
+            <Link href="/services">
+              View Services <Zap className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+        </div>
       </section>
     </main>
   );

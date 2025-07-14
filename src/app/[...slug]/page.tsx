@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getServiceBySlug } from '@/content/service';
+import { getServiceBySlug, services } from '@/content/service';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -186,41 +186,43 @@ export default async function ServicePage({ params, searchParams }: ServicePageP
                 Related Services
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {service.relatedServices.map((relatedService, index) => (
-                  <div key={index} className="bg-gray-800 rounded-xl border border-gray-700 p-6 text-center">
-                    <h4 className="text-white font-medium mb-2">{relatedService}</h4>
-                    <Button 
-                      variant="ghost" 
-                      size="sm"
-                      className="text-blue-400 hover:text-blue-300 hover:bg-blue-500/10"
-                    >
-                      Learn More
-                      <ArrowRight className="w-4 h-4 ml-1" />
-                    </Button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Brand Logos */}
-          {service.brandLogos && service.brandLogos.length > 0 && (
-            <div className="mb-16">
-              <h3 className="text-xl font-light text-white mb-8 text-center">
-                Trusted Partners
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {service.brandLogos.map((brand, index) => (
-                  <div key={index} className="flex items-center justify-center p-4 bg-gray-800 rounded-lg border border-gray-700">
-                    <Image
-                      src={brand.logo}
-                      alt={brand.name}
-                      width={120}
-                      height={60}
-                      className="opacity-70"
-                    />
-                  </div>
-                ))}
+                {service.relatedServices.map((relatedServiceSlug, index) => {
+                  // Get the service data for the related service
+                  const relatedServiceData = services[relatedServiceSlug];
+                  
+                  if (!relatedServiceData) return null;
+                  
+                  return (
+                    <div key={index} className="group relative bg-gray-800 rounded-xl border border-gray-700 overflow-hidden hover:border-blue-500/50 transition-all duration-300">
+                      {/* Service Image */}
+                      {relatedServiceData.image && (
+                        <div className="aspect-[16/9] relative overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent z-10"></div>
+                          <Image
+                            src={relatedServiceData.image}
+                            alt={relatedServiceData.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                          />
+                        </div>
+                      )}
+                      
+                      {/* Service Content */}
+                      <div className="p-6">
+                        <h4 className="text-white font-medium mb-2 text-lg">{relatedServiceData.title}</h4>
+                        <p className="text-gray-400 text-sm mb-4 line-clamp-2">{relatedServiceData.description}</p>
+                        <a 
+                          href={`/${relatedServiceSlug}`}
+                          className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300"
+                        >
+                          Learn More
+                          <ArrowRight className="w-4 h-4 ml-1" />
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

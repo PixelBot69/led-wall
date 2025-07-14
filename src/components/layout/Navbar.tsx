@@ -44,7 +44,7 @@ const Navbar = () => {
             {/* Logo */}
             <div className="flex-shrink-0">
               <div className="text-white text-xl font-bold tracking-tight">
-                SAWARIYA INFRA TECH SOLUTION
+                GM SMART LED
               </div>
             </div>
 

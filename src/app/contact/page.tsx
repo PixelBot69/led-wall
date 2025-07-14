@@ -1,6 +1,5 @@
 'use client'
 
-
 import React, { useState, useEffect } from 'react';
 import {
   Card,
@@ -8,12 +7,18 @@ import {
   CardHeader,
   CardTitle
 } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Send, Clock, Building } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, Building, MessageCircle } from 'lucide-react';
 
-export default function RcPowerContactPage() {
+export default function GMAutomationContactPage() {
   const [isVisible, setIsVisible] = useState(false);
-const [hoveredCard, setHoveredCard] = useState<string | null>(null);
-
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phone: '',
+    email: '',
+    serviceInterest: '',
+    projectDetails: ''
+  });
 
   useEffect(() => {
     setIsVisible(true);
@@ -24,8 +29,8 @@ const [hoveredCard, setHoveredCard] = useState<string | null>(null);
       id: 'email',
       icon: Mail,
       title: 'Email Us',
-      content: 'Info@Rc.co.in',
-      href: 'mailto:Info@Rc.co.in',
+      content: 'Info@gmautomation.co.in',
+      href: 'mailto:Info@gmautomation.co.in',
       description: 'Get in touch via email'
     },
     {
@@ -34,17 +39,28 @@ const [hoveredCard, setHoveredCard] = useState<string | null>(null);
       title: 'Call Us',
       content: '+91 97827 30455',
       href: 'tel:+919782730455',
-      description: 'Speak directly with our team'
+      description: 'Speak with our experts'
     },
     {
-      id: 'location',
-      icon: MapPin,
-      title: 'Visit Us',
-      content: 'Prince Palace, Kanha Vihar',
-      href: '#map',
-      description: 'Come see our showroom'
+      id: 'whatsapp',
+      icon: MessageCircle,
+      title: 'WhatsApp',
+      content: 'Chat with us',
+      href: 'https://wa.me/919782730455',
+      description: 'Quick support & demos'
     }
   ];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log('Form submitted:', formData);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
@@ -66,9 +82,9 @@ const [hoveredCard, setHoveredCard] = useState<string | null>(null);
             Get In Touch
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Ready to transform your infrastructure with cutting-edge technology? 
+            Ready to transform your space with cutting-edge automation technology? 
             <br />
-            <span className="text-cyan-400 font-medium">SAWARIYA INFRA TECH SOLUTION - Building Tomorrow.</span>
+            <span className="text-cyan-400 font-medium">GM AUTOMATION & SOLUTION - Building Tomorrow.</span>
           </p>
         </div>
 
@@ -123,10 +139,105 @@ const [hoveredCard, setHoveredCard] = useState<string | null>(null);
           })}
         </div>
 
+        {/* Form Section */}
+        <div className={`mb-20 transition-all duration-1000 transform ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+        }`} style={{ transitionDelay: '600ms' }}>
+          <Card className="bg-gray-800/50 backdrop-blur-sm border-gray-700/50 shadow-xl">
+            <CardHeader>
+              <CardTitle className="text-3xl text-white flex items-center justify-center">
+                <div className="bg-gradient-to-br from-purple-400 to-purple-600 p-3 rounded-full mr-4 shadow-lg">
+                  <Send className="h-6 w-6 text-white" />
+                </div>
+                Start Your Project
+              </CardTitle>
+              <p className="text-gray-400 text-center">Fill out the form below and our team will get back to you within 24 hours to discuss your automation needs.</p>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-gray-300 mb-2">Full Name</label>
+                    <input
+                      type="text"
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleInputChange}
+                      className="w-full p-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-300 mb-2">Phone Number</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full p-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-gray-300 mb-2">Email Address</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full p-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-gray-300 mb-2">Service Interest</label>
+                  <select
+                    name="serviceInterest"
+                    value={formData.serviceInterest}
+                    onChange={handleInputChange}
+                    className="w-full p-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300"
+                    required
+                  >
+                    <option value="">Select a service</option>
+                    <option value="home-automation">Home Automation</option>
+                    <option value="elv-systems">ELV Systems</option>
+                    <option value="home-cinema">Home Cinema</option>
+                    <option value="ict-solutions">ICT Solutions</option>
+                    <option value="building-management">Building Management Systems</option>
+                    <option value="general-consultation">General Consultation</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-gray-300 mb-2">Project Details</label>
+                  <textarea
+                    name="projectDetails"
+                    value={formData.projectDetails}
+                    onChange={handleInputChange}
+                    rows={5}
+                    className="w-full p-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 resize-none"
+                    placeholder="Tell us about your project requirements..."
+                  />
+                </div>
+                
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold py-4 px-6 rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  Send Message
+                </button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+
         {/* Address & Hours Section */}
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 transition-all duration-1000 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`} style={{ transitionDelay: '600ms' }}>
+        }`} style={{ transitionDelay: '800ms' }}>
           {/* Address Card */}
           <Card className="bg-gray-800/50 backdrop-blur-sm border-gray-700/50 shadow-xl hover:shadow-2xl transition-all duration-300">
             <CardHeader>
@@ -134,11 +245,13 @@ const [hoveredCard, setHoveredCard] = useState<string | null>(null);
                 <div className="bg-gradient-to-br from-blue-400 to-blue-600 p-3 rounded-full mr-4 shadow-lg">
                   <Building className="h-6 w-6 text-white" />
                 </div>
-                Main Office
+                Visit Our Office
               </CardTitle>
+              <p className="text-gray-400">Our Location</p>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="p-4 bg-gray-700/30 rounded-lg">
+                <h4 className="text-cyan-400 font-semibold mb-2">Main Office</h4>
                 <p className="text-gray-300 leading-relaxed">
                   Prince Palace, Kanha Vihar,<br />
                   Ayodhya Nagar, Plot No.154,<br />
@@ -146,6 +259,13 @@ const [hoveredCard, setHoveredCard] = useState<string | null>(null);
                   Jaipur, Rajasthan 302021
                 </p>
               </div>
+              <a 
+                href="#map"
+                className="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors duration-300"
+              >
+                <MapPin className="h-4 w-4 mr-2" />
+                Get Directions
+              </a>
             </CardContent>
           </Card>
 
@@ -181,7 +301,7 @@ const [hoveredCard, setHoveredCard] = useState<string | null>(null);
         {/* Map Section */}
         <div className={`transition-all duration-1000 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`} style={{ transitionDelay: '800ms' }}>
+        }`} style={{ transitionDelay: '1000ms' }}>
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-white mb-4">Find Us on the Map</h2>
             <p className="text-gray-400">Located in the heart of Jaipur's tech district</p>
@@ -208,12 +328,12 @@ const [hoveredCard, setHoveredCard] = useState<string | null>(null);
         {/* CTA Section */}
         <div className={`text-center mt-20 transition-all duration-1000 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`} style={{ transitionDelay: '1000ms' }}>
+        }`} style={{ transitionDelay: '1200ms' }}>
           <div className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm p-8 rounded-2xl border border-gray-700/50">
             <h3 className="text-2xl font-bold text-white mb-4">Ready to Get Started?</h3>
-            <p className="text-gray-300 mb-6">Join thousands of satisfied customers who've transformed their infrastructure with SAWARIYA INFRA TECH SOLUTION.</p>
+            <p className="text-gray-300 mb-6">Join thousands of satisfied customers who've transformed their spaces with GM AUTOMATION & SOLUTION.</p>
             <a 
-              href="mailto:Info@Rc.co.in"
+              href="mailto:Info@gmautomation.co.in"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-full hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               <Mail className="h-5 w-5 mr-2" />

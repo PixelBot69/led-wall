@@ -45,20 +45,24 @@ const LEDContent: React.FC<LEDContentProps> = ({ title, description, features })
             key={"led-content" + index}
             className="bg-gradient-to-br from-gray-900 to-black dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
           >
-            <p className="text-neutral-300 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mb-6">
-              <span className="font-bold text-white dark:text-neutral-200 text-xl md:text-2xl block mb-4">
-                {title}
-              </span>
-              {description}
-            </p>
+            <div className="bg-black/40 backdrop-blur-sm rounded-lg p-6 mb-6 border border-gray-700/30">
+              <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto">
+                <span className="font-bold text-white dark:text-neutral-200 text-xl md:text-2xl block mb-4 text-shadow-lg">
+                  {title}
+                </span>
+                <span className="text-gray-600">
+                  {description}
+                </span>
+              </p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
               {features.map((feature: Feature, idx: number) => (
-                <div key={idx} className="bg-gray-800/50 p-4 rounded-lg">
+                <div key={idx} className="bg-black/60 backdrop-blur-sm p-4 rounded-lg border border-gray-600/50 shadow-lg">
                   <div className="flex items-center mb-2">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    <span className="text-blue-400 font-semibold">{feature.title}</span>
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 shadow-lg shadow-blue-500/50"></div>
+                    <span className="text-blue-300 font-semibold">{feature.title}</span>
                   </div>
-                  <p className="text-gray-300 text-sm">{feature.description}</p>
+                  <p className="text-gray-200 text-sm">{feature.description}</p>
                 </div>
               ))}
             </div>

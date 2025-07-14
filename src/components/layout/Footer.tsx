@@ -62,42 +62,41 @@ const Footer = () => {
               <div className="flex items-center mb-6">
                 <div className="relative">
                   <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-xl">LED</span>
+                    <span className="text-white font-bold text-xl">GM</span>
                   </div>
                   <div className="absolute -top-1 -right-1 w-4 h-4 bg-cyan-400 rounded-full animate-ping"></div>
                 </div>
                 <div className="ml-4">
-                  <h2 className="text-white text-xl font-bold">LED Pro Solutions</h2>
-                  <p className="text-gray-400 text-sm">Illuminating Your Vision</p>
+                  <h2 className="text-white text-xl font-bold">GM SMART LED</h2>
+                  <p className="text-gray-400 text-sm">Providing cutting-edge technology solutions</p>
                 </div>
               </div>
               
-              {/* Registered Office */}
+              {/* Company Description */}
               <div className="mb-6">
-                <h3 className="text-cyan-400 font-semibold mb-3 flex items-center">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  Registered Office
-                </h3>
                 <div className="bg-gray-800/50 backdrop-blur-xl rounded-lg p-4 border border-gray-700">
                   <p className="text-gray-300 text-sm leading-relaxed">
-                    Tech Hub Complex, Building A-12,<br />
-                    Sector 18, Noida, UP-201301<br />
-                    India
+                    Providing cutting-edge technology solutions for homes and businesses since 2010. We're dedicated to creating smarter, more efficient spaces through innovative technology.
                   </p>
+                  <div className="mt-4 space-y-2">
+                    <p className="text-cyan-400 text-sm font-semibold">Trusted by 1500+ Clients</p>
+                    <p className="text-cyan-400 text-sm font-semibold">12+ Years of Excellence</p>
+                  </div>
                 </div>
               </div>
               
-              {/* Corporate Office */}
+              {/* Our Location */}
               <div>
                 <h3 className="text-cyan-400 font-semibold mb-3 flex items-center">
                   <MapPin className="w-4 h-4 mr-2" />
-                  Corporate Office
+                  Our Location
                 </h3>
                 <div className="bg-gray-800/50 backdrop-blur-xl rounded-lg p-4 border border-gray-700">
                   <p className="text-gray-300 text-sm leading-relaxed">
-                    Innovation Center, Plot No. 45,<br />
-                    Cyber City, Gurgaon, HR-122002<br />
-                    India
+                    Prince Palace, Kanha Vihar, Ayodhya Nagar,<br />
+                    Plot No.154, Bhura Patel Marg,<br />
+                    near Gandhi Path West, Vaishali Nagar,<br />
+                    Jaipur, Rajasthan 302021
                   </p>
                 </div>
               </div>
@@ -113,8 +112,8 @@ const Footer = () => {
                       <Phone className="w-5 h-5 text-blue-400" />
                     </div>
                     <div>
-                      <span className="text-gray-400 text-sm block">Phone</span>
-                      <span className="text-white font-medium">+91 9876543210</span>
+                      <span className="text-gray-400 text-sm block">Call Us</span>
+                      <span className="text-white font-medium">+91 97827 30455</span>
                     </div>
                   </div>
                   
@@ -123,8 +122,8 @@ const Footer = () => {
                       <Mail className="w-5 h-5 text-purple-400" />
                     </div>
                     <div>
-                      <span className="text-gray-400 text-sm block">Email</span>
-                      <span className="text-white font-medium">info@ledprosolutions.com</span>
+                      <span className="text-gray-400 text-sm block">Email Us</span>
+                      <span className="text-white font-medium">Info@gmautomation.co.in</span>
                     </div>
                   </div>
                 </div>
@@ -214,12 +213,12 @@ const Footer = () => {
             {/* Policy Links */}
             <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
               {[
+                { name: "About Us", href: "/about-us" },
+                { name: "Our Projects", href: "/our-projects" },
+                { name: "Contact", href: "/contact" },
                 { name: "Privacy Policy", href: "/privacy-policy" },
-                { name: "Terms & Conditions", href: "/terms-conditions" },
-                { name: "Cookie Policy", href: "/cookie-policy" },
-                { name: "Disclaimer", href: "/disclaimer" },
-                { name: "Warranty", href: "/warranty" },
-                { name: "Support", href: "/support" }
+                { name: "Terms of Service", href: "/terms-of-service" },
+                { name: "Sitemap", href: "/sitemap" }
               ].map((link, index) => (
                 <div key={index} className="flex items-center">
                   <Link 
@@ -240,10 +239,7 @@ const Footer = () => {
           {/* Copyright Text */}
           <div className="mt-6 pt-4 border-t border-gray-800 text-center">
             <p className="text-sm text-gray-400">
-              Copyright © {currentYear} LED Pro Solutions. All Rights Reserved. 
-              <span className="block lg:inline lg:ml-2 mt-1 lg:mt-0">
-                Engineered for Excellence, Designed for Impact.
-              </span>
+              © {currentYear} GM Automation & Solution. All rights reserved.
             </p>
           </div>
         </div>
