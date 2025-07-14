@@ -193,7 +193,7 @@ export default function AboutPage() {
                   <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">
                     {stat.number}
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{stat.label}</h3>
+                  <h3 className="text-xl text-white font-semibold mb-2">{stat.label}</h3>
                   <p className="text-gray-400 text-sm">{stat.description}</p>
                 </CardContent>
               </Card>
@@ -287,7 +287,7 @@ export default function AboutPage() {
                   >
                     {service.icon}
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+                  <h3 className="text-2xl text-white font-bold mb-4">{service.title}</h3>
                   <p className="text-gray-400 text-lg">{service.description}</p>
                 </CardContent>
               </Card>
@@ -327,7 +327,7 @@ export default function AboutPage() {
                   >
                     {value.icon}
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">{value.title}</h3>
+                  <h3 className="text-2xl text-white font-bold mb-4">{value.title}</h3>
                   <p className="text-gray-400 text-lg">{value.description}</p>
                 </CardContent>
               </Card>
@@ -427,7 +427,7 @@ export default function AboutPage() {
                   <div className="h-12 w-12 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center mb-4 mx-auto">
                     {advantage.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{advantage.title}</h3>
+                  <h3 className="text-xl text-white font-bold mb-3">{advantage.title}</h3>
                   <p className="text-gray-400">{advantage.description}</p>
                 </CardContent>
               </Card>
@@ -460,7 +460,7 @@ export default function AboutPage() {
               Get Started <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:border-gray-500 px-8 py-6 text-lg">
+          <Button asChild size="lg" variant="outline" className="border-gray-600 text-black hover:bg-gray-800 hover:border-gray-500 px-8 py-6 text-lg">
             <Link href="/services">
               View Services <Zap className="ml-2 h-5 w-5" />
             </Link>
